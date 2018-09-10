@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hadoop," />
 
 
 
@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="想说啥来着突然又忘记了这算是内容吧…">
+<meta name="description" content="准备工作 虚拟机：VMware 12 Pro 12.5.9 Linux发行版：Centos7 Jdk8：jdk-8u172-Linux-x64.tar.gz Hadoop发行版：Hadoop-2.6.0-cdh5.14.2.tar.gz  搭建java环境 查看自带JDK  查看命令 1rpm -qa|grep jdk  卸载以下JDK 1234567java-1.7.0-openjdk-1.7.">
+<meta name="keywords" content="hadoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="这是一篇新的文章">
-<meta property="og:url" content="http://yoursite.com/2018/09/07/new/index.html">
+<meta property="og:title" content="CentOS7下Hadoop环境搭建（伪分布式）">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/hadoop-1/index.html">
 <meta property="og:site_name" content="hsiaoz&#39;s blog">
-<meta property="og:description" content="想说啥来着突然又忘记了这算是内容吧…">
+<meta property="og:description" content="准备工作 虚拟机：VMware 12 Pro 12.5.9 Linux发行版：Centos7 Jdk8：jdk-8u172-Linux-x64.tar.gz Hadoop发行版：Hadoop-2.6.0-cdh5.14.2.tar.gz  搭建java环境 查看自带JDK  查看命令 1rpm -qa|grep jdk  卸载以下JDK 1234567java-1.7.0-openjdk-1.7.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-07T02:06:37.923Z">
+<meta property="og:image" content="http://yoursite.com/2018/09/10/hadoop-1/001.png">
+<meta property="og:updated_time" content="2018-09-10T12:53:20.676Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这是一篇新的文章">
-<meta name="twitter:description" content="想说啥来着突然又忘记了这算是内容吧…">
+<meta name="twitter:title" content="CentOS7下Hadoop环境搭建（伪分布式）">
+<meta name="twitter:description" content="准备工作 虚拟机：VMware 12 Pro 12.5.9 Linux发行版：Centos7 Jdk8：jdk-8u172-Linux-x64.tar.gz Hadoop发行版：Hadoop-2.6.0-cdh5.14.2.tar.gz  搭建java环境 查看自带JDK  查看命令 1rpm -qa|grep jdk  卸载以下JDK 1234567java-1.7.0-openjdk-1.7.">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/10/hadoop-1/001.png">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/07/new/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/10/hadoop-1/"/>
 
 
 
 
 
-  <title>这是一篇新的文章 | hsiaoz's blog</title>
+  <title>CentOS7下Hadoop环境搭建（伪分布式） | hsiaoz's blog</title>
   
 
 
@@ -190,6 +193,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -232,12 +255,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/new/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/hadoop-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hsiaoz">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/header.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -249,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">这是一篇新的文章</h1>
+          <h1 class="post-title" itemprop="name headline">CentOS7下Hadoop环境搭建（伪分布式）</h1>
         
 
         <div class="post-meta">
@@ -261,8 +284,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-07T09:58:27+08:00">
-                2018-09-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-10T15:07:05+08:00">
+                2018-09-10
               </time>
             
 
@@ -299,7 +322,27 @@
       
 
       
-        <h2 id="想说啥来着"><a href="#想说啥来着" class="headerlink" title="想说啥来着"></a>想说啥来着</h2><h3 id="突然又忘记了"><a href="#突然又忘记了" class="headerlink" title="突然又忘记了"></a>突然又忘记了</h3><p>这算是内容吧…</p>
+        <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>虚拟机：VMware 12 Pro 12.5.9</li>
+<li>Linux发行版：Centos7</li>
+<li>Jdk8：jdk-8u172-Linux-x64.tar.gz</li>
+<li>Hadoop发行版：Hadoop-2.6.0-cdh5.14.2.tar.gz</li>
+</ul>
+<h2 id="搭建java环境"><a href="#搭建java环境" class="headerlink" title="搭建java环境"></a>搭建java环境</h2><ul>
+<li><p>查看自带JDK</p>
+</li>
+<li><p>查看命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa|grep jdk</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸载以下JDK</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64</span><br><span class="line"></span><br><span class="line">java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64</span><br><span class="line"></span><br><span class="line">java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64</span><br><span class="line"></span><br><span class="line">java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸载命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e --nodeps jdk全称</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/10/hadoop-1/001.png" alt="001"></p>
+</li>
+</ul>
+<h3 id="fdas"><a href="#fdas" class="headerlink" title="fdas"></a>fdas</h3><p>这算是内容吧…</p>
 
       
     </div>
@@ -315,11 +358,33 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/hadoop/" rel="tag"># hadoop</a>
+          
+        </div>
+      
 
       
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/10/dubbo-1/" rel="prev" title="Dubbo入门">
+                Dubbo入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -382,8 +447,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="hsiaoz" />
+            
               <p class="site-author-name" itemprop="name">hsiaoz</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">听过无数的道理，却仍过不好这一生</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -393,7 +462,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -401,6 +470,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -430,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#想说啥来着"><span class="nav-number">1.</span> <span class="nav-text">想说啥来着</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#突然又忘记了"><span class="nav-number">1.1.</span> <span class="nav-text">突然又忘记了</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建java环境"><span class="nav-number">2.</span> <span class="nav-text">搭建java环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fdas"><span class="nav-number">2.1.</span> <span class="nav-text">fdas</span></a></li></ol></li></ol></div>
             
 
           </div>
